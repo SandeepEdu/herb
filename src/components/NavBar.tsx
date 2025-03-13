@@ -44,6 +44,10 @@ export const NavBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
@@ -167,6 +171,18 @@ export const NavBar = () => {
       {isMobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 z-50 bg-white pt-20">
           <Container>
+            <div className="absolute top-4 right-4">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={closeMobileMenu}
+                className="h-10 w-10 rounded-full hover:bg-gray-100"
+                aria-label="Close menu"
+              >
+                <X className="h-6 w-6" />
+              </Button>
+            </div>
+            
             <div className="py-4">
               <div className="relative mb-6">
                 <Input
