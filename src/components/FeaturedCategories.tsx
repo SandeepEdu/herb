@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { Container } from "@/components/ui/container";
 import { ArrowRight } from "lucide-react";
 
@@ -9,36 +10,42 @@ const categories = [
     name: "Supplements",
     image: "https://images.unsplash.com/photo-1577174881658-0f30ed549adc?q=80&w=800&auto=format&fit=crop",
     count: "1,200+ Products",
+    slug: "supplements"
   },
   {
     id: 2,
     name: "Herbs & Botanicals",
     image: "https://images.unsplash.com/photo-1611572847364-ec3eef48e682?q=80&w=800&auto=format&fit=crop",
     count: "800+ Products",
+    slug: "herbs"
   },
   {
     id: 3,
     name: "Natural Beauty",
     image: "https://images.unsplash.com/photo-1598452963314-b09f397a5c48?q=80&w=800&auto=format&fit=crop",
     count: "950+ Products",
+    slug: "beauty"
   },
   {
     id: 4,
     name: "Organic Foods",
     image: "https://images.unsplash.com/photo-1550828520-4cb496926fc9?q=80&w=800&auto=format&fit=crop",
     count: "750+ Products",
+    slug: "food"
   },
   {
     id: 5,
     name: "Sports Nutrition",
     image: "https://images.unsplash.com/photo-1579758629938-03607ccdbaba?q=80&w=800&auto=format&fit=crop",
     count: "500+ Products",
+    slug: "sports"
   },
   {
     id: 6,
     name: "Bath & Personal Care",
     image: "https://images.unsplash.com/photo-1570194065650-d99fb4d8vivian?q=80&w=800&auto=format&fit=crop",
     count: "650+ Products",
+    slug: "bath"
   },
 ];
 
@@ -97,7 +104,7 @@ export const FeaturedCategories = () => {
               className={`section-animate rounded-2xl overflow-hidden shadow-soft group hover:shadow-hover transition-all duration-500 bg-white border border-gray-100`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <a href="#" className="block relative overflow-hidden aspect-[4/3]">
+              <Link to={`/products?category=${category.slug}`} className="block relative overflow-hidden aspect-[4/3]">
                 <img
                   src={category.image}
                   alt={category.name}
@@ -108,7 +115,7 @@ export const FeaturedCategories = () => {
                   <h3 className="text-xl font-bold mb-1">{category.name}</h3>
                   <p className="text-sm text-white/80">{category.count}</p>
                 </div>
-              </a>
+              </Link>
               <div className="p-5 flex justify-between items-center">
                 <span className="text-sm font-medium text-herb-600">Explore Products</span>
                 <span className="h-8 w-8 rounded-full flex items-center justify-center bg-herb-50 text-herb-600 group-hover:bg-herb-100 transition-colors">
